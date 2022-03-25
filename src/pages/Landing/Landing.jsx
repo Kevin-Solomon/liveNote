@@ -16,7 +16,9 @@ export const Landing = () => {
               veritatis quidem inventore voluptate aliquid.
             </p>
           </div>
+
           <button className="btn primary-btn">
+
             <a>Join Now</a>
           </button>
           <button className="btn">Already Have an account</button>

@@ -1,0 +1,26 @@
+.note-card {
+  width: 80%;
+  margin: 0 auto;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  padding: 10px;
+}
+.note-icons-container {
+  font-size: 1.5rem;
+  margin-left: auto;
+  width: 50%;
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+.note-icons {
+  height: 2rem;
+  width: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.note-icons:hover {
+  background-color: var(--lynx-grey);
+  border-radius: 50%;
+}

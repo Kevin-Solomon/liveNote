@@ -1,21 +1,28 @@
 import React from 'react';
 import { useForm } from '../../hooks';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { useAuth } from '../../context/auth/authContext';
 import './Login.css';
+import { useNavigate } from 'react-router-dom';
 import { formSubmitHandler } from '../../util';
 export const Login = () => {
   const [userInput, setUserInput] = useForm({ email: '', password: '' });
   const { setUser } = useAuth();
-  console.log(user);
+  const navigate = useNavigate();
   return (
     <div className="login-container">
       <div className="login-card">
         <h2>Login</h2>
         <form
-          onSubmit={e => {
+          onSubmit={async e => {
             e.preventDefault();
-            formSubmitHandler(setUser, '/api/auth/login', userInput);
+            const isLoggedIn = await formSubmitHandler(
+              setUser,
+              '/api/auth/login',
+              userInput
+            );
+            console.log(isLoggedIn);
+            isLoggedIn ? navigate('/') : alert('Something went wrong');
           }}
         >
           <label htmlFor="email-input"> Email Address </label>
@@ -42,9 +49,6 @@ export const Login = () => {
           </div>
           <button className="btn primary-btn" type="submit">
             Login
-          </button>
-          <button className="btn primary-btn">
-            Login With Test Credentials
           </button>
           <Link to="/signup">Don't Have an Account</Link>
         </form>

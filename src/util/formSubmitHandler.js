@@ -1,22 +1,39 @@
 import axios from 'axios';
-
 const formSubmitHandler = async (setUser, route, userData) => {
   try {
     const { data, status } = await axios.post(route, userData);
-    if (status === 200) {
+    console.log(status);
+    if (status === 200 && route.includes('login')) {
       setUser({
         user: data.foundUser,
         token: data.encodedToken,
       });
-    } else if (status === 404) {
-      console.log('USER NOT FOUND');
-    } else if (status === 401) {
-      console.log('USER Credentials are wrong');
+      return true;
+    } else if (status === 201 && route.includes('signup')) {
+      setUser({
+        user: data.createdUser,
+        token: data.encodedToken,
+      });
+      return true;
     } else {
-      console.log('default');
+      alert('Something went wrong');
+      return false;
     }
   } catch (err) {
-    console.error('ERROR IN LOGIN', err);
+    console.error('ERROR IN LOGIN', err.response);
+    const { status, data } = err.response;
+    if (status === 404) {
+      alert('USER NOT FOUND');
+      return false;
+    } else if (status === 401) {
+      alert('USER Credentials are wrong');
+      return false;
+    } else if (status === 422) {
+      alert('USER Alredy present');
+    } else {
+      console.log('default');
+      return false;
+    }
   }
 };
 export { formSubmitHandler };

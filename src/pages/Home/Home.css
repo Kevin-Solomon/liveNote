@@ -1,0 +1,53 @@
+.note-container {
+  display: flex;
+  height: calc(100% - 100px);
+  gap: 1rem;
+}
+.body-center {
+  height: 100%;
+}
+.sidebar {
+  flex-basis: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.note-wrapper {
+  flex-grow: 1;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+}
+.sidebar-icon {
+  font-size: 1.8rem;
+}
+.sidebar-drawers {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  /* margin-top: 1rem; */
+  padding: 0.5rem;
+  border-radius: 10px;
+  margin-top: 10px;
+  transition: all 0.5s ease-in-out;
+}
+.sidebar-drawers:hover {
+  background-color: #aba5ff;
+  cursor: pointer;
+}
+.sidebar-name {
+  font-size: 1.5rem;
+}
+.sidebar-profile {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.note-card {
+  width: 80%;
+  margin: 0 auto;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  padding: 10px;
+}

@@ -55,9 +55,13 @@
   .sidebar {
     transform: translateX(-100vw);
     display: none;
-    position: fixed;
+    transition: all 0.5s ease-in-out;
   }
   .show {
     transform: translateX(0);
+    position: fixed;
+    display: flex;
+    background-color: white;
+    justify-content: space-between;
   }
 }

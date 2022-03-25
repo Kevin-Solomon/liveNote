@@ -51,3 +51,13 @@
   border-radius: 5px;
   padding: 10px;
 }
+@media screen and (max-width: 600px) {
+  .sidebar {
+    transform: translateX(-100vw);
+    display: none;
+    position: fixed;
+  }
+  .show {
+    transform: translateX(0);
+  }
+}

@@ -17,7 +17,7 @@ export const Landing = () => {
             </p>
           </div>
           <button class="btn primary-btn">
-            <a href="/home.html">Join Now</a>
+            <a>Join Now</a>
           </button>
           <button class="btn">Already Have an account</button>
         </arcticle>

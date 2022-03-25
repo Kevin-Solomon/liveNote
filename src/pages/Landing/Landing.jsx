@@ -5,7 +5,7 @@ export const Landing = () => {
   return (
     <main class="center">
       <section class="wrapper-center">
-        <arcticle class="hero-wrapper">
+        <article class="hero-wrapper">
           <h1 class="hero-heading">liveNote</h1>
           <div>
             <h3>Meet your modern</h3>
@@ -20,7 +20,7 @@ export const Landing = () => {
             <a href="/home.html">Join Now</a>
           </button>
           <button class="btn">Already Have an account</button>
-        </arcticle>
+        </article>
         <article class="hero-img">
           <img src={heroImg} />
         </article>

@@ -1,9 +1,8 @@
 import React from 'react';
 import { useForm } from '../../hooks';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { formSubmitHandler } from '../../util';
 import { useAuth } from '../../context/auth/authContext';
-import { useNavigate } from 'react-router-dom';
 export const Signup = () => {
   const navigate = useNavigate();
   const [userInput, setUserInput] = useForm({

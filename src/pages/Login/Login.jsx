@@ -1,10 +1,10 @@
 import React from 'react';
 import { useForm } from '../../hooks';
-import { Link, Navigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/auth/authContext';
-import './Login.css';
-import { useNavigate } from 'react-router-dom';
 import { formSubmitHandler } from '../../util';
+import './Login.css';
+
 export const Login = () => {
   const [userInput, setUserInput] = useForm({ email: '', password: '' });
   const { setUser } = useAuth();

@@ -22,7 +22,7 @@ export const Login = () => {
               userInput
             );
             console.log(isLoggedIn);
-            isLoggedIn ? navigate('/') : alert('Something went wrong');
+            isLoggedIn ? navigate('/home') : alert('Something went wrong');
           }}
         >
           <label htmlFor="email-input"> Email Address </label>

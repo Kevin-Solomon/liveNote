@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { NoteCard } from '../../../../components/NoteCard/NoteCard';
-import axios from 'axios';
-import { useAuth } from '../../../../context/auth/authContext';
 import { useNotes } from '../../../../hooks/useNotes';
 export const NoteContainer = () => {
   const [notes] = useNotes();

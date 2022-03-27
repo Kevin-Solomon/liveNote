@@ -5,6 +5,7 @@ export function useNotes() {
   const { user } = useAuth();
   const [notes, setNotes] = useState([]);
   useEffect(() => {
+    console.log('in usenote ');
     const getProducts = async () => {
       try {
         const response = await axios.get('/api/notes', {

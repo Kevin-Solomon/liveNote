@@ -6,9 +6,16 @@ import {
   MdArchive,
 } from 'react-icons/md';
 import ReactHtmlParser from 'react-html-parser';
-export const NoteCard = ({ title, content }) => {
+import { useNavigate } from 'react-router-dom';
+export const NoteCard = ({ _id, title, content }) => {
+  const navigate = useNavigate();
   return (
-    <div className="note-card">
+    <div
+      className="note-card"
+      onClick={() => {
+        navigate(`/singlenote/${_id}`);
+      }}
+    >
       <h2>{title}</h2>
       <p>{ReactHtmlParser(content)}</p>
       <div className="note-icons-container">

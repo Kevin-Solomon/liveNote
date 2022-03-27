@@ -16,6 +16,7 @@ function App() {
       <Route path="/mockman" element={<Mockman />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/singlenote" element={<NoteEditor />} />
+      <Route path="/singlenote/:singlenoteId" element={<NoteEditor />} />
     </Routes>
   );
 }

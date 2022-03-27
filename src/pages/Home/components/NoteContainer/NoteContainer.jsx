@@ -11,8 +11,8 @@ export const NoteContainer = () => {
         content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa,
           perferendis!"
       />
-      {notes.map(({ title, value }) => {
-        return <NoteCard title={title} content={value} />;
+      {notes.map(({ _id, title, value }) => {
+        return <NoteCard _id={_id} title={title} content={value} />;
       })}
     </section>
   );

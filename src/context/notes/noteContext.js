@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer } from 'react';
+import { createContext, useContext, useReducer, useEffect } from 'react';
 import { noteReducer, noteInitialState } from '../../reducer/noteReducer';
 const NoteContext = createContext({ notes: [] });
 const NoteProvider = ({ children }) => {
@@ -7,6 +7,7 @@ const NoteProvider = ({ children }) => {
     const getNotes = () => {
       const response = axios.get('/api/notes', { auth });
     };
+    getNotes();
   }, []);
   return (
     <NoteContext.Provider value={{ noteState, noteDispatch }}>

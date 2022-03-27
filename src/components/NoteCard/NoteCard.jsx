@@ -5,11 +5,12 @@ import {
   MdOutlineInsertPhoto,
   MdArchive,
 } from 'react-icons/md';
+import ReactHtmlParser from 'react-html-parser';
 export const NoteCard = ({ title, content }) => {
   return (
     <div className="note-card">
       <h2>{title}</h2>
-      <p>{content}</p>
+      <p>{ReactHtmlParser(content)}</p>
       <div className="note-icons-container">
         <span className="note-icons">
           <MdOutlineColorLens />

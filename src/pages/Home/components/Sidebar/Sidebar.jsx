@@ -3,7 +3,9 @@ import { AiFillHome, AiOutlineLogout } from 'react-icons/ai';
 import { MdLabelOutline, MdArchive } from 'react-icons/md';
 import { IoTrashBinOutline } from 'react-icons/io5';
 import { CgProfile } from 'react-icons/cg';
+import { useNavigate } from 'react-router-dom';
 const Sidebar = () => {
+  const navigate = useNavigate();
   return (
     <aside className="sidebar">
       <div className="sidebar-container">
@@ -37,7 +39,14 @@ const Sidebar = () => {
           </span>
           <p className="sidebar-name">Profile</p>
         </div>
-        <button className="btn primary-btn">Create New Note</button>
+        <button
+          onClick={() => {
+            navigate('/singlenote');
+          }}
+          className="btn primary-btn"
+        >
+          Create New Note
+        </button>
       </div>
 
       <div className="sidebar-profile">

@@ -3,7 +3,7 @@ import { NoteCard } from '../../../../components/NoteCard/NoteCard';
 import { useNotes } from '../../../../hooks/useNotes';
 export const NoteContainer = () => {
   const [notes] = useNotes();
-
+  console.log(notes);
   return (
     <section className="note-wrapper">
       <NoteCard
@@ -11,8 +11,8 @@ export const NoteContainer = () => {
         content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa,
           perferendis!"
       />
-      {notes.map(({ title, content }) => {
-        return <NoteCard title={title} content={content} />;
+      {notes.map(({ title, value }) => {
+        return <NoteCard title={title} content={value} />;
       })}
     </section>
   );

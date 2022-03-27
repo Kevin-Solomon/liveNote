@@ -18,6 +18,6 @@ export function useNotes() {
       }
     };
     getProducts();
-  });
+  }, []);
   return [notes];
 }

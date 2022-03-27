@@ -24,7 +24,7 @@ export const Signup = () => {
               '/api/auth/signup',
               userInput
             );
-            isSignedUp ? navigate('/') : alert('Something went wrong');
+            isSignedUp ? navigate('/home') : alert('Something went wrong');
           }}
         >
           <label htmlFor="name"> Name </label>

@@ -12,7 +12,6 @@ export function useNotes() {
             authorization: user.token,
           },
         });
-        console.log(response.data.notes);
         setNotes([...response.data.notes]);
       } catch (err) {
         console.log(err);

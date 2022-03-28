@@ -1,0 +1,17 @@
+.editor-container {
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+  flex-direction: column;
+  gap: 4rem;
+}
+.quill {
+  width: 75%;
+  height: 50%;
+}
+.editor-heading {
+  text-align: center;
+}

@@ -7,7 +7,11 @@ export const addNewNote = async (value, token, noteDispatch) => {
       { note: { value } },
       options
     );
-    noteDispatch({ type: 'ADD_NEW_NOTE', payload: response.data.notes });
+    if (response.status === 201) {
+      noteDispatch({ type: 'ADD_NEW_NOTE', payload: response.data.notes });
+    } else {
+      alert('Something went wrong');
+    }
   } catch (err) {
     console.log(err.response);
   }

@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from 'react';
 
 import ReactQuill from 'react-quill';
-import { saveNoteHandler } from './../../util/saveNoteHandler';
 import { useAuth } from './../../context/auth/authContext';
 import './NoteEditor.css';
 import { Navbar } from '../../components/Navbar/Navbar';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useNotes } from './../../context/notes/noteContext';
-import axios from 'axios';
+import { updateNote, addNewNote } from '../../util';
+
 function NoteEditor() {
   const { user } = useAuth();
-  console.log(user.token);
+  const navigate = useNavigate();
   const { noteState, noteDispatch } = useNotes();
-  console.log(noteState);
   const [value, setValue] = useState('');
   const params = useParams();
   useEffect(() => {
@@ -25,32 +24,7 @@ function NoteEditor() {
       setValue(selectedNote[0].value);
     }
   }, []);
-  const addNewNote = async () => {
-    try {
-      const options = { headers: { authorization: user.token } };
-      const response = await axios.post(
-        '/api/notes',
-        { note: { value } },
-        options
-      );
-      noteDispatch({ type: 'ADD_NEW_NOTE', payload: response.data.notes });
-    } catch (err) {
-      console.log(err.response);
-    }
-  };
-  const updateNote = async _id => {
-    try {
-      const options = { headers: { authorization: user.token } };
-      const response = await axios.post(
-        `/api/notes/${_id}`,
-        { note: { value } },
-        options
-      );
-      noteDispatch({ type: 'ADD_NEW_NOTE', payload: response.data.notes });
-    } catch (err) {
-      console.log(err.response);
-    }
-  };
+
   return (
     <>
       <Navbar />
@@ -71,10 +45,16 @@ function NoteEditor() {
               );
               console.log(selectedNote);
               if (selectedNote.length === 0) {
-                addNewNote();
+                addNewNote(value, user.token, noteDispatch);
               } else {
-                updateNote(params.singlenoteId);
+                updateNote(
+                  params.singlenoteId,
+                  value,
+                  user.token,
+                  noteDispatch
+                );
               }
+              navigate('/home');
             }}
           >
             Save

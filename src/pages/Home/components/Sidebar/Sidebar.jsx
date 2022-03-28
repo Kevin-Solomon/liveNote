@@ -3,7 +3,7 @@ import { AiFillHome, AiOutlineLogout } from 'react-icons/ai';
 import { MdLabelOutline, MdArchive } from 'react-icons/md';
 import { IoTrashBinOutline } from 'react-icons/io5';
 import { CgProfile } from 'react-icons/cg';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 const Sidebar = () => {
   const navigate = useNavigate();
   return (
@@ -21,12 +21,14 @@ const Sidebar = () => {
           </span>
           <p className="sidebar-name">Label</p>
         </div>
-        <div className="sidebar-drawers">
-          <span className="sidebar-icon">
-            <MdArchive />
-          </span>
-          <p className="sidebar-name">Archive</p>
-        </div>
+        <Link to="/archive">
+          <div className="sidebar-drawers">
+            <span className="sidebar-icon">
+              <MdArchive />
+            </span>
+            <p className="sidebar-name">Archive</p>
+          </div>
+        </Link>
         <div className="sidebar-drawers">
           <span className="sidebar-icon">
             <IoTrashBinOutline />

@@ -24,3 +24,6 @@
   background-color: var(--lynx-grey);
   border-radius: 50%;
 }
+.archive-icon {
+  color: var(--primary-color);
+}

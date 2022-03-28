@@ -11,10 +11,13 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/auth/authContext';
 import { deleteNote } from '../../util';
 import { useNotes } from '../../context/notes/noteContext';
-export const NoteCard = ({ _id, title, content, tags }) => {
+import { archiveNote } from '../../util/archiveNote';
+import { restoreArchiveNote } from '../../util/restoreArchiveNote';
+export const NoteCard = ({ _id, title, content, tags, inArchive }) => {
   const navigate = useNavigate();
   const { user } = useAuth();
   const { noteDispatch } = useNotes();
+  console.log(inArchive);
   return (
     <div
       className="note-card"
@@ -31,9 +34,27 @@ export const NoteCard = ({ _id, title, content, tags }) => {
         <span className="note-icons">
           <MdOutlineInsertPhoto />
         </span>
-        <span className="note-icons">
-          <MdArchive />
-        </span>
+        {inArchive ? (
+          <span
+            className="note-icons"
+            onClick={e => {
+              e.stopPropagation();
+              restoreArchiveNote(_id, user.token, noteDispatch);
+            }}
+          >
+            <MdArchive className="archive-icon" />
+          </span>
+        ) : (
+          <span
+            className="note-icons"
+            onClick={e => {
+              e.stopPropagation();
+              archiveNote(_id, content, user.token, noteDispatch);
+            }}
+          >
+            <MdArchive />
+          </span>
+        )}
         <span
           className="note-icons"
           onClick={e => {

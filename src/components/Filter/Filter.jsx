@@ -12,19 +12,21 @@ function Filter() {
         <span>Sort By</span>
         <div>
           <input
+            id="latest-first"
             type="radio"
             checked={filterState.sortBy === 'LATEST_FIRST'}
             onChange={e => filterDispatch({ type: 'LATEST_FIRST' })}
           />
-          <label>Latest First</label>
+          <label htmlFor="latest-first">Latest First</label>
         </div>
         <div>
           <input
+            id="oldest-first"
             type="radio"
             checked={filterState.sortBy === 'OLDEST_FIRST'}
             onChange={e => filterDispatch({ type: 'OLDEST_FIRST' })}
           />
-          <label>Oldest First</label>
+          <label htmlFor="oldest-first">Oldest First</label>
         </div>
         <span>Sort By Tags</span>
         <div>

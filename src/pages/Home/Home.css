@@ -12,7 +12,11 @@
   flex-direction: column;
   justify-content: space-between;
 }
-
+.note-filter {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
 .note-wrapper {
   flex-grow: 1;
   display: flex;

@@ -2,7 +2,7 @@ import { createContext, useContext, useReducer, useEffect } from 'react';
 import { noteReducer, noteInitialState } from '../../reducer/noteReducer';
 import axios from 'axios';
 import { useAuth } from '../auth/authContext';
-const NoteContext = createContext({ notes: [], archive: [] });
+const NoteContext = createContext({ notes: [], archives: [] });
 const NoteProvider = ({ children }) => {
   const { user } = useAuth();
   const [noteState, noteDispatch] = useReducer(noteReducer, noteInitialState);

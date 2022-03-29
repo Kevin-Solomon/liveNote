@@ -9,12 +9,11 @@ export const NoteContainer = ({ notes, inArchive }) => {
   console.log(sortedList);
   return (
     <section className="note-wrapper">
-      <NoteCard
-        title="Title"
-        content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa,
-          perferendis!"
-      />
-      <Filter />
+      <div className="note-filter">
+        <input />
+        <Filter />
+      </div>
+
       {notes.map(({ _id, title, value, createdAt }) => {
         return (
           <NoteCard

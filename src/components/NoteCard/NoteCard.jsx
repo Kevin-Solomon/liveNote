@@ -13,7 +13,14 @@ import { deleteNote } from '../../util';
 import { useNotes } from '../../context/notes/noteContext';
 import { archiveNote } from '../../util/archiveNote';
 import { restoreArchiveNote } from '../../util/restoreArchiveNote';
-export const NoteCard = ({ _id, title, content, tags, inArchive }) => {
+export const NoteCard = ({
+  _id,
+  title,
+  createdAt,
+  content,
+  tags,
+  inArchive,
+}) => {
   const navigate = useNavigate();
   const { user } = useAuth();
   const { noteDispatch } = useNotes();
@@ -28,6 +35,7 @@ export const NoteCard = ({ _id, title, content, tags, inArchive }) => {
       <h2>{title}</h2>
       <p>{ReactHtmlParser(content)}</p>
       <div className="note-icons-container">
+        <span>{createdAt}</span>
         <span className="note-icons">
           <MdOutlineColorLens />
         </span>

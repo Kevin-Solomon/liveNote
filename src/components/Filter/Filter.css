@@ -1,0 +1,12 @@
+.filter-container {
+  width: 30%;
+  position: absolute;
+  right: 0;
+}
+.filter {
+  display: none;
+  background-color: #ffff;
+}
+.filter.show {
+  display: block;
+}

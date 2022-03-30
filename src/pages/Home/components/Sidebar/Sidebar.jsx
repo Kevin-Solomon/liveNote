@@ -9,14 +9,14 @@ const Sidebar = () => {
   return (
     <aside className="sidebar">
       <div className="sidebar-container">
-        <div className="sidebar-drawers">
-          <Link to="/home">
+        <Link to="/home">
+          <div className="sidebar-drawers">
             <span className="sidebar-icon">
               <AiFillHome />
             </span>
             <p className="sidebar-name">Home</p>
-          </Link>
-        </div>
+          </div>
+        </Link>
         <div className="sidebar-drawers">
           <span className="sidebar-icon">
             <MdLabelOutline />

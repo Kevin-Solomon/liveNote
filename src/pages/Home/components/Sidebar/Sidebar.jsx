@@ -10,10 +10,12 @@ const Sidebar = () => {
     <aside className="sidebar">
       <div className="sidebar-container">
         <div className="sidebar-drawers">
-          <span className="sidebar-icon">
-            <AiFillHome />
-          </span>
-          <p className="sidebar-name">Home</p>
+          <Link to="/home">
+            <span className="sidebar-icon">
+              <AiFillHome />
+            </span>
+            <p className="sidebar-name">Home</p>
+          </Link>
         </div>
         <div className="sidebar-drawers">
           <span className="sidebar-icon">

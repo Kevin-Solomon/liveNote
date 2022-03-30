@@ -11,6 +11,9 @@
   z-index: 1;
   background-color: var(--white-color);
 }
+.filter > * {
+  margin-top: 0.5rem;
+}
 .filter.show {
   display: block;
 }

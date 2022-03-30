@@ -10,7 +10,14 @@ export const NoteContainer = ({ notes, inArchive }) => {
   return (
     <section className="note-wrapper">
       <div className="note-filter">
-        <input />
+        <form className="form">
+          <input
+            type="text"
+            className="form-input small-text"
+            placeholder="Search Notes"
+          />
+        </form>
+
         <Filter />
       </div>
 

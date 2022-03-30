@@ -7,9 +7,11 @@ function Filter() {
   console.log(filterState);
   return (
     <div className="filter-container">
-      <button onClick={() => setHidden(!hidden)}>Filter</button>
+      <button className="btn" onClick={() => setHidden(!hidden)}>
+        Filter
+      </button>
       <div className={hidden ? 'filter' : 'filter show'}>
-        <span>Sort By</span>
+        <div>Sort By</div>
         <div>
           <input
             id="latest-first"
@@ -28,7 +30,7 @@ function Filter() {
           />
           <label htmlFor="oldest-first">Oldest First</label>
         </div>
-        <span>Sort By Tags</span>
+        <div>Sort By Tags</div>
         <div>
           <input type="checkbox" />
           <label>Productivity</label>

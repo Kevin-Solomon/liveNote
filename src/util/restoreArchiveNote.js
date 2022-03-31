@@ -6,7 +6,6 @@ export const restoreArchiveNote = async (_id, token, noteDispatch) => {
       url: `/api/archives/restore/${_id}`,
       headers: { authorization: token },
     });
-    console.log(response);
     noteDispatch({ type: 'RESTORE_ARCHIVE_NOTE', payload: response.data });
   } catch (err) {
     console.log(err.response);

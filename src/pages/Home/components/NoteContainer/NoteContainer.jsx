@@ -6,7 +6,6 @@ import { useFilter } from '../../../../context/filter/filterContext';
 export const NoteContainer = ({ notes, inArchive }) => {
   const { filterState } = useFilter();
   const sortedList = getSortedList(filterState, notes);
-  console.log(sortedList);
   return (
     <section className="note-wrapper">
       <div className="note-filter">

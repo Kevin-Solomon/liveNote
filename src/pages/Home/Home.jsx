@@ -6,7 +6,6 @@ import { NoteContainer } from './components/NoteContainer/NoteContainer';
 import { notesState, useNotes } from './../../context/notes/noteContext';
 export const Home = () => {
   const { noteState } = useNotes();
-  console.log(noteState);
   return (
     <div className="body-center">
       <Navbar />

@@ -4,10 +4,12 @@ import './Filter.css';
 function Filter() {
   const [hidden, setHidden] = useState(true);
   const { filterState, filterDispatch } = useFilter();
-  console.log(filterState);
   return (
     <div className="filter-container">
-      <button className="btn" onClick={() => setHidden(!hidden)}>
+      <button
+        className="btn"
+        onClick={() => setHidden(prevState => !prevState)}
+      >
         Filter
       </button>
       <div className={hidden ? 'filter' : 'filter show'}>
@@ -17,7 +19,7 @@ function Filter() {
             id="latest-first"
             type="radio"
             checked={filterState.sortBy === 'LATEST_FIRST'}
-            onChange={e => filterDispatch({ type: 'LATEST_FIRST' })}
+            onChange={() => filterDispatch({ type: 'LATEST_FIRST' })}
           />
           <label htmlFor="latest-first">Latest First</label>
         </div>

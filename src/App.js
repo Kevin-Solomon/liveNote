@@ -6,12 +6,14 @@ import { Login } from './pages/Login/Login';
 import Mockman from 'mockman-js';
 import { Signup } from './pages/Signup/Signup';
 import NoteEditor from './pages/NoteEditor/NoteEditor';
+import Archive from './pages/Archive/Archive';
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Landing />} />
       <Route path="/home" element={<Home />} />
+      <Route path="/archive" element={<Archive />} />
       <Route path="/login" element={<Login />} />
       <Route path="/mockman" element={<Mockman />} />
       <Route path="/signup" element={<Signup />} />

@@ -12,12 +12,17 @@
   flex-direction: column;
   justify-content: space-between;
 }
-
+.note-filter {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
 .note-wrapper {
   flex-grow: 1;
   display: flex;
   gap: 1rem;
   flex-direction: column;
+  position: relative;
 }
 .sidebar-icon {
   font-size: 1.8rem;

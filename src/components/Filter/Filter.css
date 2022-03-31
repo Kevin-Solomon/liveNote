@@ -1,0 +1,19 @@
+.filter-container {
+  position: relative;
+  right: 0;
+  top: 0;
+}
+.filter {
+  display: none;
+  background-color: #ffff;
+  position: absolute;
+  width: 10rem;
+  z-index: 1;
+  background-color: var(--white-color);
+}
+.filter > * {
+  margin-top: 0.5rem;
+}
+.filter.show {
+  display: block;
+}

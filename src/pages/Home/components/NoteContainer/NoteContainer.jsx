@@ -1,18 +1,35 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import Filter from '../../../../components/Filter/Filter';
 import { NoteCard } from '../../../../components/NoteCard/NoteCard';
-import { useNotes } from './../../../../context/notes/noteContext';
-
-export const NoteContainer = () => {
-  const { noteState } = useNotes();
+import { getSortedList } from '../../../../util/getSortedList';
+import { useFilter } from '../../../../context/filter/filterContext';
+export const NoteContainer = ({ notes, inArchive }) => {
+  const { filterState } = useFilter();
+  const sortedList = getSortedList(filterState, notes);
   return (
     <section className="note-wrapper">
-      <NoteCard
-        title="Title"
-        content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa,
-          perferendis!"
-      />
-      {noteState.notes.map(({ _id, title, value }) => {
-        return <NoteCard _id={_id} title={title} content={value} />;
+      <div className="note-filter">
+        <form className="form">
+          <input
+            type="text"
+            className="form-input small-text"
+            placeholder="Search Notes"
+          />
+        </form>
+
+        <Filter />
+      </div>
+
+      {notes.map(({ _id, title, value, createdAt }) => {
+        return (
+          <NoteCard
+            _id={_id}
+            title={title}
+            content={value}
+            createdAt={createdAt}
+            inArchive={inArchive}
+          />
+        );
       })}
     </section>
   );

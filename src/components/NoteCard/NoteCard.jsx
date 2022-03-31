@@ -11,7 +11,17 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/auth/authContext';
 import { deleteNote } from '../../util';
 import { useNotes } from '../../context/notes/noteContext';
-export const NoteCard = ({ _id, title, content, tags }) => {
+import { archiveNote } from '../../util/archiveNote';
+import { restoreArchiveNote } from '../../util/restoreArchiveNote';
+import { deleteArchiveNote } from '../../util/deleteArchiveNote';
+export const NoteCard = ({
+  _id,
+  title,
+  createdAt,
+  content,
+  tags,
+  inArchive,
+}) => {
   const navigate = useNavigate();
   const { user } = useAuth();
   const { noteDispatch } = useNotes();
@@ -24,25 +34,58 @@ export const NoteCard = ({ _id, title, content, tags }) => {
     >
       <h2>{title}</h2>
       <p>{ReactHtmlParser(content)}</p>
-      <div className="note-icons-container">
-        <span className="note-icons">
-          <MdOutlineColorLens />
-        </span>
-        <span className="note-icons">
-          <MdOutlineInsertPhoto />
-        </span>
-        <span className="note-icons">
-          <MdArchive />
-        </span>
-        <span
-          className="note-icons"
-          onClick={e => {
-            e.stopPropagation();
-            deleteNote(_id, user.token, noteDispatch);
-          }}
-        >
-          <IoTrashBinOutline />
-        </span>
+      <div className="note-card-footer">
+        <span className="small-text">{createdAt}</span>
+        <div className="note-icons-container">
+          <span className="note-icons">
+            <MdOutlineColorLens />
+          </span>
+          <span className="note-icons">
+            <MdOutlineInsertPhoto />
+          </span>
+          {inArchive ? (
+            <span
+              className="note-icons"
+              onClick={e => {
+                e.stopPropagation();
+                restoreArchiveNote(_id, user.token, noteDispatch);
+              }}
+            >
+              <MdArchive className="archive-icon" />
+            </span>
+          ) : (
+            <span
+              className="note-icons"
+              onClick={e => {
+                e.stopPropagation();
+                archiveNote(_id, content, user.token, noteDispatch);
+              }}
+            >
+              <MdArchive />
+            </span>
+          )}
+          {inArchive ? (
+            <span
+              className="note-icons"
+              onClick={e => {
+                e.stopPropagation();
+                deleteArchiveNote(_id, user.token, noteDispatch);
+              }}
+            >
+              <IoTrashBinOutline className="archive-icon" />
+            </span>
+          ) : (
+            <span
+              className="note-icons"
+              onClick={e => {
+                e.stopPropagation();
+                deleteNote(_id, user.token, noteDispatch);
+              }}
+            >
+              <IoTrashBinOutline />
+            </span>
+          )}
+        </div>
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ export const updateNote = async (_id, value, token, noteDispatch) => {
     const options = { headers: { authorization: token } };
     const response = await axios.post(
       `/api/notes/${_id}`,
-      { note: { value } },
+      { note: { value, createdAt: new Date().toLocaleString() } },
       options
     );
     if (response.status === 201) {

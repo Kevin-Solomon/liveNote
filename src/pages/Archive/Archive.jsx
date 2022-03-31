@@ -9,7 +9,7 @@ function Archive() {
     <div className="body-center">
       <Navbar />
       <main className="note-container">
-        <Sidebar />
+        <Sidebar inArchive />
         <NoteContainer notes={noteState.archives} inArchive />
       </main>
     </div>

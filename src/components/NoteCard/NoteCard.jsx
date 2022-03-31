@@ -21,15 +21,23 @@ export const NoteCard = ({
   content,
   tags,
   inArchive,
+  backgroundColor,
 }) => {
+  // console.log();
   const navigate = useNavigate();
   const { user } = useAuth();
   const { noteDispatch } = useNotes();
+  const getBackgroundColor = backgroundColor => {
+    if (backgroundColor.includes('red')) return '#5c2b29';
+    if (backgroundColor.includes('grey')) return '#d1d4cb';
+    if (backgroundColor.includes('blue')) return '##2d555e';
+  };
   return (
     <div
+      style={{ backgroundColor: getBackgroundColor(backgroundColor) }}
       className="note-card"
       onClick={() => {
-        navigate(`/singlenote/${_id}`);
+        return inArchive ? null : navigate(`/singlenote/${_id}`);
       }}
     >
       <h2>{title}</h2>
@@ -37,12 +45,6 @@ export const NoteCard = ({
       <div className="note-card-footer">
         <span className="small-text">{createdAt}</span>
         <div className="note-icons-container">
-          <span className="note-icons">
-            <MdOutlineColorLens />
-          </span>
-          <span className="note-icons">
-            <MdOutlineInsertPhoto />
-          </span>
           {inArchive ? (
             <span
               className="note-icons"

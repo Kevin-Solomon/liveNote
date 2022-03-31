@@ -4,13 +4,16 @@ import { MdLabelOutline, MdArchive } from 'react-icons/md';
 import { IoTrashBinOutline } from 'react-icons/io5';
 import { CgProfile } from 'react-icons/cg';
 import { Link, useNavigate } from 'react-router-dom';
-const Sidebar = () => {
+const Sidebar = ({ inArchive, inHome }) => {
   const navigate = useNavigate();
   return (
     <aside className="sidebar">
       <div className="sidebar-container">
         <Link to="/home">
-          <div className="sidebar-drawers">
+          <div
+            style={{ fontWeight: inHome ? 800 : 'inherit' }}
+            className="sidebar-drawers"
+          >
             <span className="sidebar-icon">
               <AiFillHome />
             </span>
@@ -24,7 +27,10 @@ const Sidebar = () => {
           <p className="sidebar-name">Label</p>
         </div>
         <Link to="/archive">
-          <div className="sidebar-drawers">
+          <div
+            style={{ fontWeight: inArchive ? 800 : 'inherit' }}
+            className="sidebar-drawers"
+          >
             <span className="sidebar-icon">
               <MdArchive />
             </span>

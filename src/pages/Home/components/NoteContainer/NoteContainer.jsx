@@ -25,7 +25,8 @@ export const NoteContainer = ({ notes, inArchive }) => {
           <NoteCard
             _id={_id}
             title={title}
-            content={value}
+            content={value.text}
+            backgroundColor={value.backgroundColor}
             createdAt={createdAt}
             inArchive={inArchive}
           />

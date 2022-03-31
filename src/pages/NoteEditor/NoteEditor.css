@@ -15,3 +15,8 @@
 .editor-heading {
   text-align: center;
 }
+.background-select {
+  height: 2rem;
+  border-radius: 5px;
+  border: 1px solid var(--primary-color);
+}

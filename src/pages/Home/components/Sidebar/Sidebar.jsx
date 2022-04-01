@@ -3,46 +3,63 @@ import { AiFillHome, AiOutlineLogout } from 'react-icons/ai';
 import { MdLabelOutline, MdArchive } from 'react-icons/md';
 import { IoTrashBinOutline } from 'react-icons/io5';
 import { CgProfile } from 'react-icons/cg';
-import { Link, useNavigate } from 'react-router-dom';
-const Sidebar = ({ inArchive, inHome }) => {
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+const Sidebar = () => {
   const navigate = useNavigate();
   return (
     <aside className="sidebar">
       <div className="sidebar-container">
-        <Link to="/home">
-          <div
-            style={{ fontWeight: inHome ? 800 : 'inherit' }}
-            className="sidebar-drawers"
-          >
+        <NavLink
+          style={({ isActive }) => {
+            return {
+              fontWeight: isActive ? 800 : '',
+            };
+          }}
+          to="/home"
+        >
+          <div className="sidebar-drawers">
             <span className="sidebar-icon">
               <AiFillHome />
             </span>
             <p className="sidebar-name">Home</p>
           </div>
-        </Link>
+        </NavLink>
         <div className="sidebar-drawers">
           <span className="sidebar-icon">
             <MdLabelOutline />
           </span>
           <p className="sidebar-name">Label</p>
         </div>
-        <Link to="/archive">
-          <div
-            style={{ fontWeight: inArchive ? 800 : 'inherit' }}
-            className="sidebar-drawers"
-          >
+        <NavLink
+          style={({ isActive }) => {
+            return {
+              fontWeight: isActive ? 800 : '',
+            };
+          }}
+          to="/archive"
+        >
+          <div className="sidebar-drawers">
             <span className="sidebar-icon">
               <MdArchive />
             </span>
             <p className="sidebar-name">Archive</p>
           </div>
-        </Link>
-        <div className="sidebar-drawers">
-          <span className="sidebar-icon">
-            <IoTrashBinOutline />
-          </span>
-          <p className="sidebar-name">Trash</p>
-        </div>
+        </NavLink>
+        <NavLink
+          style={({ isActive }) => {
+            return {
+              fontWeight: isActive ? 800 : '',
+            };
+          }}
+          to="/trash"
+        >
+          <div className="sidebar-drawers">
+            <span className="sidebar-icon">
+              <IoTrashBinOutline />
+            </span>
+            <p className="sidebar-name">Trash</p>
+          </div>
+        </NavLink>
         <div className="sidebar-drawers">
           <span className="sidebar-icon">
             <CgProfile />

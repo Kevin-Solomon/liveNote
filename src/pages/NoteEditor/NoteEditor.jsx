@@ -56,9 +56,9 @@ function NoteEditor() {
           }}
           className="background-select"
         >
-          <option name="red">🔴 red</option>
-          <option name="blue">🔵 blue </option>
-          <option name="green">🟢 green</option>
+          <option name="red">red</option>
+          <option name="blue">blue </option>
+          <option name="green">grey</option>
         </select>
         <div>
           <button

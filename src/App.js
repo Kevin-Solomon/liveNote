@@ -7,6 +7,7 @@ import Mockman from 'mockman-js';
 import { Signup } from './pages/Signup/Signup';
 import NoteEditor from './pages/NoteEditor/NoteEditor';
 import Archive from './pages/Archive/Archive';
+import Trash from './pages/Trash/Trash';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route path="/home" element={<Home />} />
       <Route path="/archive" element={<Archive />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/trash" element={<Trash />} />
       <Route path="/mockman" element={<Mockman />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/singlenote" element={<NoteEditor />} />

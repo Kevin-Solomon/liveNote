@@ -4,6 +4,7 @@ import {
   MdOutlineColorLens,
   MdOutlineInsertPhoto,
   MdArchive,
+  MdUnarchive,
 } from 'react-icons/md';
 import { IoTrashBinOutline } from 'react-icons/io5';
 import ReactHtmlParser from 'react-html-parser';
@@ -14,6 +15,7 @@ import { useNotes } from '../../context/notes/noteContext';
 import { archiveNote } from '../../util/archiveNote';
 import { restoreArchiveNote } from '../../util/restoreArchiveNote';
 import { deleteArchiveNote } from '../../util/deleteArchiveNote';
+import { useDeletedNotes } from '../../context/deletedNotes/deletedNotes';
 export const NoteCard = ({
   _id,
   title,
@@ -21,16 +23,18 @@ export const NoteCard = ({
   content,
   tags,
   inArchive,
+  inHome,
+  inTrash,
   backgroundColor,
 }) => {
-  // console.log();
   const navigate = useNavigate();
   const { user } = useAuth();
   const { noteDispatch } = useNotes();
+  const { setDeletedNotes } = useDeletedNotes();
   const getBackgroundColor = backgroundColor => {
     if (backgroundColor.includes('red')) return '#5c2b29';
     if (backgroundColor.includes('grey')) return '#d1d4cb';
-    if (backgroundColor.includes('blue')) return '##2d555e';
+    if (backgroundColor.includes('blue')) return '#2d555e';
   };
   return (
     <div
@@ -53,7 +57,7 @@ export const NoteCard = ({
                 restoreArchiveNote(_id, user.token, noteDispatch);
               }}
             >
-              <MdArchive className="archive-icon" />
+              <MdUnarchive />
             </span>
           ) : (
             <span
@@ -71,22 +75,66 @@ export const NoteCard = ({
               className="note-icons"
               onClick={e => {
                 e.stopPropagation();
+                setDeletedNotes(prevState => ({
+                  deletedNotes: [
+                    ...prevState.deletedNotes,
+                    {
+                      _id,
+                      value: {
+                        text: content,
+                        tags,
+                        backgroundColor,
+                      },
+                      createdAt,
+                    },
+                  ],
+                }));
                 deleteArchiveNote(_id, user.token, noteDispatch);
               }}
             >
-              <IoTrashBinOutline className="archive-icon" />
+              <IoTrashBinOutline />
             </span>
-          ) : (
+          ) : null}
+          {inHome ? (
             <span
               className="note-icons"
               onClick={e => {
+                setDeletedNotes(prevState => ({
+                  deletedNotes: [
+                    ...prevState.deletedNotes,
+                    {
+                      _id,
+                      value: {
+                        text: content,
+                        tags,
+                        backgroundColor,
+                      },
+                      createdAt,
+                    },
+                  ],
+                }));
                 e.stopPropagation();
                 deleteNote(_id, user.token, noteDispatch);
               }}
             >
               <IoTrashBinOutline />
             </span>
-          )}
+          ) : null}
+          {inTrash ? (
+            <span
+              className="note-icons"
+              onClick={e => {
+                e.stopPropagation();
+                setDeletedNotes(prevState => ({
+                  deletedNotes: [
+                    ...prevState.deletedNotes.filter(note => note._id !== _id),
+                  ],
+                }));
+              }}
+            >
+              <IoTrashBinOutline />
+            </span>
+          ) : null}
         </div>
       </div>
     </div>

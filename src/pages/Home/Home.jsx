@@ -12,7 +12,7 @@ export const Home = () => {
       <Navbar />
       <main className="note-container">
         <Sidebar inHome />
-        <NoteContainer notes={noteState.notes} />
+        <NoteContainer notes={noteState.notes} inHome />
       </main>
     </div>
   );

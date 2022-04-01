@@ -3,8 +3,9 @@ import Filter from '../../../../components/Filter/Filter';
 import { NoteCard } from '../../../../components/NoteCard/NoteCard';
 import { getSortedList } from '../../../../util/getSortedList';
 import { useFilter } from '../../../../context/filter/filterContext';
-export const NoteContainer = ({ notes, inArchive }) => {
+export const NoteContainer = ({ notes, inArchive, inHome, inTrash }) => {
   const { filterState } = useFilter();
+  console.log(inHome);
   const sortedList = getSortedList(filterState, notes);
   return (
     <section className="note-wrapper">
@@ -29,6 +30,8 @@ export const NoteContainer = ({ notes, inArchive }) => {
             backgroundColor={value.backgroundColor}
             createdAt={createdAt}
             inArchive={inArchive}
+            inHome={inHome}
+            inTrash={inTrash}
           />
         );
       })}

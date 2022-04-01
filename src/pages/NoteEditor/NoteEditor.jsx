@@ -15,7 +15,7 @@ function NoteEditor() {
   const [value, setValue] = useState('');
   const [note, setNote] = useState({
     text: '',
-    backgroundColor: '🔴 red',
+    backgroundColor: 'purple',
     tags: [],
   });
   const params = useParams();
@@ -26,10 +26,10 @@ function NoteEditor() {
     if (selectedNote.length === 0) {
       setValue('');
     } else {
-      setValue(selectedNote[0].value.text);
+      setValue(selectedNote[0].text);
       setNote(prevState => ({
         ...prevState,
-        backgroundColor: selectedNote[0].value.backgroundColor,
+        backgroundColor: selectedNote[0].backgroundColor,
       }));
     }
   }, []);
@@ -58,7 +58,7 @@ function NoteEditor() {
         >
           <option name="red">red</option>
           <option name="blue">blue </option>
-          <option name="green">grey</option>
+          <option name="green">purple</option>
         </select>
         <div>
           <button

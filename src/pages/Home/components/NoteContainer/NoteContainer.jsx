@@ -21,13 +21,13 @@ export const NoteContainer = ({ notes, inArchive, inHome, inTrash }) => {
         <Filter />
       </div>
 
-      {notes.map(({ _id, title, value, createdAt }) => {
+      {notes.map(({ _id, title, text, backgroundColor, createdAt }) => {
         return (
           <NoteCard
             _id={_id}
             title={title}
-            content={value.text}
-            backgroundColor={value.backgroundColor}
+            content={text}
+            backgroundColor={backgroundColor}
             createdAt={createdAt}
             inArchive={inArchive}
             inHome={inHome}

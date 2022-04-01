@@ -1,10 +1,19 @@
 import axios from 'axios';
 export const addNewNote = async (value, token, noteDispatch) => {
+  console.log('in add new note');
+  console.log(value);
   try {
     const options = { headers: { authorization: token } };
     const response = await axios.post(
       '/api/notes',
-      { note: { value, createdAt: new Date().toLocaleString() } },
+      {
+        note: {
+          text: value.text,
+          backgroundColor: value.backgroundColor,
+          tags: value.tags,
+          createdAt: new Date().toLocaleString(),
+        },
+      },
       options
     );
     if (response.status === 201) {

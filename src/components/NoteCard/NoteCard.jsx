@@ -6,6 +6,7 @@ import {
   MdArchive,
   MdUnarchive,
 } from 'react-icons/md';
+import { FaTrashRestore } from 'react-icons/fa';
 import { IoTrashBinOutline } from 'react-icons/io5';
 import ReactHtmlParser from 'react-html-parser';
 import { useNavigate } from 'react-router-dom';
@@ -16,6 +17,7 @@ import { archiveNote } from '../../util/archiveNote';
 import { restoreArchiveNote } from '../../util/restoreArchiveNote';
 import { deleteArchiveNote } from '../../util/deleteArchiveNote';
 import { useDeletedNotes } from '../../context/deletedNotes/deletedNotes';
+import { addNewNote } from '../../util';
 export const NoteCard = ({
   _id,
   title,
@@ -27,21 +29,22 @@ export const NoteCard = ({
   inTrash,
   backgroundColor,
 }) => {
+  console.log(backgroundColor);
   const navigate = useNavigate();
   const { user } = useAuth();
   const { noteDispatch } = useNotes();
   const { setDeletedNotes } = useDeletedNotes();
   const getBackgroundColor = backgroundColor => {
     if (backgroundColor.includes('red')) return '#5c2b29';
-    if (backgroundColor.includes('grey')) return '#d1d4cb';
     if (backgroundColor.includes('blue')) return '#2d555e';
+    if (backgroundColor.includes('purple')) return '#6c63ff';
   };
   return (
     <div
       style={{ backgroundColor: getBackgroundColor(backgroundColor) }}
       className="note-card"
       onClick={() => {
-        return inArchive ? null : navigate(`/singlenote/${_id}`);
+        return inArchive || inTrash ? null : navigate(`/singlenote/${_id}`);
       }}
     >
       <h2>{title}</h2>
@@ -59,7 +62,7 @@ export const NoteCard = ({
             >
               <MdUnarchive />
             </span>
-          ) : (
+          ) : inTrash ? null : (
             <span
               className="note-icons"
               onClick={e => {
@@ -80,11 +83,11 @@ export const NoteCard = ({
                     ...prevState.deletedNotes,
                     {
                       _id,
-                      value: {
-                        text: content,
-                        tags,
-                        backgroundColor,
-                      },
+
+                      text: content,
+                      tags,
+                      backgroundColor,
+
                       createdAt,
                     },
                   ],
@@ -104,11 +107,11 @@ export const NoteCard = ({
                     ...prevState.deletedNotes,
                     {
                       _id,
-                      value: {
-                        text: content,
-                        tags,
-                        backgroundColor,
-                      },
+
+                      text: content,
+                      tags,
+                      backgroundColor,
+
                       createdAt,
                     },
                   ],
@@ -133,6 +136,34 @@ export const NoteCard = ({
               }}
             >
               <IoTrashBinOutline />
+            </span>
+          ) : null}
+          {inTrash ? (
+            <span
+              className="note-icons"
+              onClick={e => {
+                e.stopPropagation();
+                setDeletedNotes(prevState => ({
+                  deletedNotes: [
+                    ...prevState.deletedNotes.filter(note => note._id !== _id),
+                  ],
+                }));
+                addNewNote(
+                  {
+                    _id,
+
+                    text: content,
+                    tags,
+                    backgroundColor,
+
+                    createdAt,
+                  },
+                  user.token,
+                  noteDispatch
+                );
+              }}
+            >
+              <FaTrashRestore />
             </span>
           ) : null}
         </div>

@@ -19,14 +19,14 @@
   justify-content: flex-end;
 }
 .note-icons {
-  height: 2rem;
-  width: 2rem;
+  height: 2.5rem;
+  width: 2.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .note-icons:hover {
-  background-color: var(--lynx-grey);
+  background-color: rgb(109, 109, 109, 0.5);
   border-radius: 50%;
 }
 .archive-icon {

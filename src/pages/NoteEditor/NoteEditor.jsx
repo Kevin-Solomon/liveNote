@@ -16,7 +16,7 @@ function NoteEditor() {
   const [note, setNote] = useState({
     text: '',
     backgroundColor: 'purple',
-    tags: [],
+    tags: ['productivity'],
   });
   const params = useParams();
   useEffect(() => {
@@ -59,6 +59,16 @@ function NoteEditor() {
           <option name="red">red</option>
           <option name="blue">blue </option>
           <option name="green">purple</option>
+        </select>
+        <select
+          value={note.tags[0]}
+          onChange={e =>
+            setNote(prevNote => ({ ...prevNote, tags: [e.target.value] }))
+          }
+        >
+          <option>productivity</option>
+          <option>home</option>
+          <option>work</option>
         </select>
         <div>
           <button

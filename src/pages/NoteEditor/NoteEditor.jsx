@@ -13,6 +13,11 @@ function NoteEditor() {
   const navigate = useNavigate();
   const { noteState, noteDispatch } = useNotes();
   const [value, setValue] = useState('');
+  const [note, setNote] = useState({
+    text: '',
+    backgroundColor: 'purple',
+    tags: [],
+  });
   const params = useParams();
   useEffect(() => {
     const selectedNote = noteState.notes.filter(
@@ -21,10 +26,13 @@ function NoteEditor() {
     if (selectedNote.length === 0) {
       setValue('');
     } else {
-      setValue(selectedNote[0].value);
+      setValue(selectedNote[0].text);
+      setNote(prevState => ({
+        ...prevState,
+        backgroundColor: selectedNote[0].backgroundColor,
+      }));
     }
   }, []);
-
   return (
     <>
       <Navbar />
@@ -34,8 +42,24 @@ function NoteEditor() {
           value={value}
           onChange={value => {
             setValue(value);
+            setNote(prevState => ({ ...prevState, text: value }));
           }}
         />
+        <select
+          value={note.backgroundColor}
+          onChange={e => {
+            console.log(e.target.name);
+            setNote(prevState => ({
+              ...prevState,
+              backgroundColor: e.target.value,
+            }));
+          }}
+          className="background-select"
+        >
+          <option name="red">red</option>
+          <option name="blue">blue </option>
+          <option name="green">purple</option>
+        </select>
         <div>
           <button
             className="btn primary-btn"
@@ -45,14 +69,9 @@ function NoteEditor() {
               );
               console.log(selectedNote);
               if (selectedNote.length === 0) {
-                addNewNote(value, user.token, noteDispatch);
+                addNewNote(note, user.token, noteDispatch);
               } else {
-                updateNote(
-                  params.singlenoteId,
-                  value,
-                  user.token,
-                  noteDispatch
-                );
+                updateNote(params.singlenoteId, note, user.token, noteDispatch);
               }
               navigate('/home');
             }}

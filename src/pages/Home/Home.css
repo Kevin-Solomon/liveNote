@@ -37,7 +37,7 @@
   transition: all 0.5s ease-in-out;
 }
 .sidebar-drawers:hover {
-  background-color: #aba5ff;
+  background-color: #e4e2ff;
   cursor: pointer;
 }
 .sidebar-name {

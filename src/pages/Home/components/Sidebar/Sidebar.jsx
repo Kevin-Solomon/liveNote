@@ -24,12 +24,22 @@ const Sidebar = () => {
             <p className="sidebar-name">Home</p>
           </div>
         </NavLink>
-        <div className="sidebar-drawers">
-          <span className="sidebar-icon">
-            <MdLabelOutline />
-          </span>
-          <p className="sidebar-name">Label</p>
-        </div>
+        <NavLink
+          style={({ isActive }) => {
+            return {
+              fontWeight: isActive ? 800 : '',
+            };
+          }}
+          to="/label"
+        >
+          <div className="sidebar-drawers">
+            <span className="sidebar-icon">
+              <MdLabelOutline />
+            </span>
+            <p className="sidebar-name">Label</p>
+          </div>
+        </NavLink>
+
         <NavLink
           style={({ isActive }) => {
             return {

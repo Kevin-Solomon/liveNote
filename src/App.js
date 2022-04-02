@@ -8,7 +8,7 @@ import { Signup } from './pages/Signup/Signup';
 import NoteEditor from './pages/NoteEditor/NoteEditor';
 import Archive from './pages/Archive/Archive';
 import Trash from './pages/Trash/Trash';
-
+import Label from './pages/Label/Label';
 function App() {
   return (
     <Routes>
@@ -21,6 +21,7 @@ function App() {
       <Route path="/signup" element={<Signup />} />
       <Route path="/singlenote" element={<NoteEditor />} />
       <Route path="/singlenote/:singlenoteId" element={<NoteEditor />} />
+      <Route path="/label" element={<Label />} />
     </Routes>
   );
 }

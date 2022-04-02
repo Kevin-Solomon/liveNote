@@ -16,7 +16,7 @@ function NoteEditor() {
   const [note, setNote] = useState({
     text: '',
     backgroundColor: 'purple',
-    tags: [],
+    tags: ['productivity'],
   });
   const params = useParams();
   useEffect(() => {
@@ -45,21 +45,34 @@ function NoteEditor() {
             setNote(prevState => ({ ...prevState, text: value }));
           }}
         />
-        <select
-          value={note.backgroundColor}
-          onChange={e => {
-            console.log(e.target.name);
-            setNote(prevState => ({
-              ...prevState,
-              backgroundColor: e.target.value,
-            }));
-          }}
-          className="background-select"
-        >
-          <option name="red">red</option>
-          <option name="blue">blue </option>
-          <option name="green">purple</option>
-        </select>
+        <div>
+          <select
+            value={note.backgroundColor}
+            onChange={e => {
+              console.log(e.target.name);
+              setNote(prevState => ({
+                ...prevState,
+                backgroundColor: e.target.value,
+              }));
+            }}
+            className="background-select"
+          >
+            <option name="red">red</option>
+            <option name="blue">blue </option>
+            <option name="green">purple</option>
+          </select>
+          <select
+            value={note.tags[0]}
+            onChange={e =>
+              setNote(prevNote => ({ ...prevNote, tags: [e.target.value] }))
+            }
+          >
+            <option>productivity</option>
+            <option>home</option>
+            <option>work</option>
+          </select>
+        </div>
+
         <div>
           <button
             className="btn primary-btn"

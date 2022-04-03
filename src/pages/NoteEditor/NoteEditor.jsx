@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import { MdOutlineColorLens } from 'react-icons/md';
 import ReactQuill from 'react-quill';
 import { useAuth } from './../../context/auth/authContext';
 import './NoteEditor.css';
@@ -45,31 +45,39 @@ function NoteEditor() {
             setNote(prevState => ({ ...prevState, text: value }));
           }}
         />
-        <select
-          value={note.backgroundColor}
-          onChange={e => {
-            console.log(e.target.name);
-            setNote(prevState => ({
-              ...prevState,
-              backgroundColor: e.target.value,
-            }));
-          }}
-          className="background-select"
-        >
-          <option name="red">red</option>
-          <option name="blue">blue </option>
-          <option name="green">purple</option>
-        </select>
-        <select
-          value={note.tags[0]}
-          onChange={e =>
-            setNote(prevNote => ({ ...prevNote, tags: [e.target.value] }))
-          }
-        >
-          <option>productivity</option>
-          <option>home</option>
-          <option>work</option>
-        </select>
+        <div className="note-options">
+          <span>
+            Color <MdOutlineColorLens />
+          </span>
+          <select
+            value={note.backgroundColor}
+            onChange={e => {
+              console.log(e.target.name);
+              setNote(prevState => ({
+                ...prevState,
+                backgroundColor: e.target.value,
+              }));
+            }}
+            className="background-select"
+          >
+            <option name="red">red</option>
+            <option name="blue">blue </option>
+            <option name="green">purple</option>
+          </select>
+          <span>Label </span>
+          <select
+            className="label-select"
+            value={note.tags[0]}
+            onChange={e =>
+              setNote(prevNote => ({ ...prevNote, tags: [e.target.value] }))
+            }
+          >
+            <option>productivity</option>
+            <option>home</option>
+            <option>work</option>
+          </select>
+        </div>
+
         <div>
           <button
             className="btn primary-btn"

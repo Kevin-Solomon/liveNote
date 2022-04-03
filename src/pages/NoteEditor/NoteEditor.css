@@ -15,8 +15,15 @@
 .editor-heading {
   text-align: center;
 }
-.background-select {
+.background-select,
+.label-select {
   height: 2rem;
   border-radius: 5px;
   border: 1px solid var(--primary-color);
+}
+.note-options {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }

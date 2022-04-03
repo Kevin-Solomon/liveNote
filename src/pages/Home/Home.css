@@ -59,6 +59,7 @@
   width: min-content;
   background-color: var(--lynx-grey);
   border-radius: 5px;
+  cursor: pointer;
 }
 @media screen and (max-width: 600px) {
   .sidebar {

@@ -1,4 +1,4 @@
-export const initialFilterState = { sortBy: null, tags: [] };
+export const initialFilterState = { sortBy: null, tags: null };
 export const filterReducer = (state, { type, payload }) => {
   switch (type) {
     case 'LATEST_FIRST':

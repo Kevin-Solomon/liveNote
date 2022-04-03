@@ -13,9 +13,11 @@ export const NoteContainer = ({
   inLabel,
 }) => {
   const { filterState, filterDispatch } = useFilter();
-  console.log(inHome);
+
   const sortedList = getSortedList(filterState, notes);
+  console.log(sortedList);
   const categorizedList = getCategoryList(filterState, sortedList);
+  console.log(categorizedList);
   return (
     <section className="note-wrapper">
       <div className="note-filter">

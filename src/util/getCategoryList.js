@@ -1,4 +1,5 @@
 const getCategoryList = ({ tags }, notes) => {
+  console.log(tags);
   if (tags === null) {
     return notes;
   } else {

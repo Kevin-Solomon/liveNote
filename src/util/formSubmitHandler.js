@@ -5,13 +5,13 @@ const formSubmitHandler = async (setUser, route, userData) => {
     console.log(status);
     if (status === 200 && route.includes('login')) {
       setUser({
-        user: data.foundUser,
+        userDetails: data.foundUser,
         token: data.encodedToken,
       });
       return true;
     } else if (status === 201 && route.includes('signup')) {
       setUser({
-        user: data.createdUser,
+        userDetails: data.createdUser,
         token: data.encodedToken,
       });
       return true;

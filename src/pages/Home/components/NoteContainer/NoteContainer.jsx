@@ -96,6 +96,38 @@ export const NoteContainer = ({
             );
           })
         : null}
+      {inArchive
+        ? notes.map(({ _id, title, text, backgroundColor, createdAt }) => {
+            return (
+              <NoteCard
+                _id={_id}
+                title={title}
+                content={text}
+                backgroundColor={backgroundColor}
+                createdAt={createdAt}
+                inArchive={inArchive}
+                inHome={inHome}
+                inTrash={inTrash}
+              />
+            );
+          })
+        : null}
+      {inTrash
+        ? notes.map(({ _id, title, text, backgroundColor, createdAt }) => {
+            return (
+              <NoteCard
+                _id={_id}
+                title={title}
+                content={text}
+                backgroundColor={backgroundColor}
+                createdAt={createdAt}
+                inArchive={inArchive}
+                inHome={inHome}
+                inTrash={inTrash}
+              />
+            );
+          })
+        : null}
     </section>
   );
 };

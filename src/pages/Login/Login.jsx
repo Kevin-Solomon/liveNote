@@ -6,7 +6,10 @@ import { formSubmitHandler } from '../../util';
 import './Login.css';
 
 export const Login = () => {
-  const [userInput, setUserInput] = useForm({ email: '', password: '' });
+  const [userInput, setUserInput, setInput] = useForm({
+    email: '',
+    password: '',
+  });
   const { setUser } = useAuth();
   const navigate = useNavigate();
   return (
@@ -49,6 +52,17 @@ export const Login = () => {
           </div>
           <button className="btn primary-btn" type="submit">
             Login
+          </button>
+          <button
+            className="btn primary-btn"
+            onClick={() => {
+              setInput({
+                email: 'adarshbalika@gmail.com',
+                password: 'adarshBalika123',
+              });
+            }}
+          >
+            Login with test credentials
           </button>
           <Link to="/signup">Don't Have an Account</Link>
         </form>

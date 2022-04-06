@@ -27,3 +27,15 @@
   align-items: center;
   gap: 10px;
 }
+
+@media screen and (max-width: 750px) {
+  .editor-container {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .quill {
+    width: 100%;
+  }
+}

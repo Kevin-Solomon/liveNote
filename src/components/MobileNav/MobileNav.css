@@ -1,0 +1,18 @@
+.mobile-nav {
+  position: fixed;
+  bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+  left: 0;
+}
+.floating-btn {
+  width: min-content;
+  border-radius: 50%;
+  color: var(--black-color);
+  min-width: auto;
+  background-color: var(--primary-color);
+  bottom: 6rem;
+  font-size: 1.5rem;
+}

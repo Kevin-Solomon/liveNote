@@ -5,7 +5,6 @@ import { NoteContainer } from './../Home/components/NoteContainer/NoteContainer'
 import Sidebar from './../Home/components/Sidebar/Sidebar';
 function Archive() {
   const { noteState } = useNotes();
-  console.log(noteState.archive);
   return (
     <div className="body-center">
       <Navbar />

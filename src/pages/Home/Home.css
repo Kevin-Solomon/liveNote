@@ -64,7 +64,13 @@
 .sidebar .primary-btn {
   margin-top: 1.5rem;
 }
+.note-container .mobile-nav {
+  display: none;
+}
 @media screen and (max-width: 600px) {
+  .note-container .mobile-nav {
+    display: flex;
+  }
   .sidebar {
     transform: translateX(-100vw);
     display: none;

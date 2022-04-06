@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { heroImg } from '../../assests';
 import './Landing.css';
 export const Landing = () => {
@@ -18,10 +19,9 @@ export const Landing = () => {
           </div>
 
           <button className="btn primary-btn">
-
-            <a>Join Now</a>
+            <Link to="/signup">Join Now</Link>
           </button>
-          <button className="btn">Already Have an account</button>
+          <Link to="login">Already Have an account</Link>
         </article>
         <article className="hero-img">
           <img src={heroImg} />

@@ -48,7 +48,22 @@
   gap: 5px;
   align-items: center;
 }
-
+.category-filter {
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  gap: 1rem;
+}
+.category-button {
+  padding: 10px;
+  width: min-content;
+  background-color: var(--lynx-grey);
+  border-radius: 5px;
+  cursor: pointer;
+}
+.sidebar .primary-btn {
+  margin-top: 1.5rem;
+}
 @media screen and (max-width: 600px) {
   .sidebar {
     transform: translateX(-100vw);

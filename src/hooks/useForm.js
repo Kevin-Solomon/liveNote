@@ -8,7 +8,7 @@ const useForm = initialState => {
       [e.target.name]: e.target.value,
     }));
   };
-  return [userInput, changeHandler];
+  return [userInput, changeHandler, setUserInput];
 };
 
 export { useForm };

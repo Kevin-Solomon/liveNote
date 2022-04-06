@@ -4,8 +4,10 @@ import { MdLabelOutline, MdArchive } from 'react-icons/md';
 import { IoTrashBinOutline } from 'react-icons/io5';
 import { CgProfile } from 'react-icons/cg';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../../../context/auth/authContext';
 const Sidebar = () => {
   const navigate = useNavigate();
+  const { user, setUser } = useAuth();
   return (
     <aside className="sidebar">
       <div className="sidebar-container">
@@ -91,8 +93,14 @@ const Sidebar = () => {
           src="https://i.picsum.photos/id/237/200/300.jpg?hmac=TmmQSbShHz9CdQm0NkEjx1Dyh_Y984R9LpNrpvH2D_U"
           alt="avatar1"
         />
-        <span>Kevin Solomon</span>
-        <span className="sidebar-icon">
+        <span>{user.userDetails.firstName}</span>
+        <span
+          className="sidebar-icon"
+          onClick={() => {
+            setUser({ userDetails: null, token: null });
+            navigate('/');
+          }}
+        >
           <AiOutlineLogout />
         </span>
       </div>

@@ -6,7 +6,6 @@ import { Navbar } from '../../components/Navbar/Navbar';
 import MobileNav from '../../components/MobileNav/MobileNav';
 function Trash() {
   const { deletedNotes } = useDeletedNotes();
-  console.log(deletedNotes);
   return (
     <>
       <div className="body-center">

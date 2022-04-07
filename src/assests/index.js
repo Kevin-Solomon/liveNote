@@ -1,2 +1,3 @@
 import heroImg from './hero-img.svg';
-export { heroImg };
+import notfound from './notfound.jpg';
+export { heroImg, notfound };

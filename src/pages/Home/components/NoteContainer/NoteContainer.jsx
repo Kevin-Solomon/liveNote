@@ -4,6 +4,7 @@ import { NoteCard } from '../../../../components/NoteCard/NoteCard';
 import { getSortedList } from '../../../../util/getSortedList';
 import { useFilter } from '../../../../context/filter/filterContext';
 import { getCategoryList } from '../../../../util';
+import { getPriorityList } from '../../../../util/getPriorityList';
 
 export const NoteContainer = ({
   notes,
@@ -18,6 +19,8 @@ export const NoteContainer = ({
   console.log(sortedList);
   const categorizedList = getCategoryList(filterState, sortedList);
   console.log(categorizedList);
+  const priorityList = getPriorityList(filterState, categorizedList);
+  console.log(priorityList);
   return (
     <section className="note-wrapper">
       <div className="note-filter">
@@ -62,6 +65,7 @@ export const NoteContainer = ({
           </span>
         </div>
       ) : null}
+
       {inLabel
         ? categorizedList.map(
             ({ _id, title, text, backgroundColor, createdAt }) => {
@@ -81,20 +85,22 @@ export const NoteContainer = ({
           )
         : null}
       {inHome
-        ? sortedList.map(({ _id, title, text, backgroundColor, createdAt }) => {
-            return (
-              <NoteCard
-                _id={_id}
-                title={title}
-                content={text}
-                backgroundColor={backgroundColor}
-                createdAt={createdAt}
-                inArchive={inArchive}
-                inHome={inHome}
-                inTrash={inTrash}
-              />
-            );
-          })
+        ? priorityList.map(
+            ({ _id, title, text, backgroundColor, createdAt }) => {
+              return (
+                <NoteCard
+                  _id={_id}
+                  title={title}
+                  content={text}
+                  backgroundColor={backgroundColor}
+                  createdAt={createdAt}
+                  inArchive={inArchive}
+                  inHome={inHome}
+                  inTrash={inTrash}
+                />
+              );
+            }
+          )
         : null}
       {inArchive
         ? notes.map(({ _id, title, text, backgroundColor, createdAt }) => {

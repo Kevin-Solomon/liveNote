@@ -17,22 +17,26 @@ function NoteEditor() {
     text: '',
     backgroundColor: 'purple',
     tags: ['productivity'],
+    priority: 'low',
   });
   const params = useParams();
   useEffect(() => {
     const selectedNote = noteState.notes.filter(
       note => note._id === params.singlenoteId
     );
+    console.log(selectedNote);
     if (selectedNote.length === 0) {
       setValue('');
     } else {
       setValue(selectedNote[0].text);
       setNote(prevState => ({
         ...prevState,
+        priority: selectedNote[0].priority,
         backgroundColor: selectedNote[0].backgroundColor,
       }));
     }
   }, []);
+  console.log(note);
   return (
     <>
       <Navbar />
@@ -75,6 +79,18 @@ function NoteEditor() {
             <option>productivity</option>
             <option>home</option>
             <option>work</option>
+          </select>
+          <span>Priority </span>
+          <select
+            className="label-select"
+            value={note.priority}
+            onChange={e =>
+              setNote(prevNote => ({ ...prevNote, priority: e.target.value }))
+            }
+          >
+            <option>low</option>
+            <option>medium</option>
+            <option>high</option>
           </select>
         </div>
 

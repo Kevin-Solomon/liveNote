@@ -32,15 +32,6 @@ function Filter() {
           />
           <label htmlFor="oldest-first">Oldest First</label>
         </div>
-        <div>Sort By Tags</div>
-        <div>
-          <input type="checkbox" />
-          <label>Productivity</label>
-        </div>
-        <div>
-          <input type="checkbox" />
-          <label>Notes</label>
-        </div>
       </div>
     </div>
   );

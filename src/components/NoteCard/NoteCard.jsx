@@ -30,7 +30,7 @@ export const NoteCard = ({
   backgroundColor,
   priority,
 }) => {
-  console.log(backgroundColor);
+  console.log(tags, priority, backgroundColor);
   const navigate = useNavigate();
   const { user } = useAuth();
   const { noteDispatch } = useNotes();
@@ -72,7 +72,20 @@ export const NoteCard = ({
               className="note-icons"
               onClick={e => {
                 e.stopPropagation();
-                archiveNote(_id, content, user.token, noteDispatch);
+                archiveNote(
+                  _id,
+                  {
+                    _id,
+                    title,
+                    createdAt,
+                    content,
+                    tags,
+                    backgroundColor,
+                    priority,
+                  },
+                  user.token,
+                  noteDispatch
+                );
               }}
             >
               <MdArchive />
@@ -88,11 +101,10 @@ export const NoteCard = ({
                     ...prevState.deletedNotes,
                     {
                       _id,
-
                       text: content,
                       tags,
                       backgroundColor,
-
+                      priority,
                       createdAt,
                     },
                   ],
@@ -112,11 +124,10 @@ export const NoteCard = ({
                     ...prevState.deletedNotes,
                     {
                       _id,
-
                       text: content,
                       tags,
                       backgroundColor,
-
+                      priority,
                       createdAt,
                     },
                   ],
@@ -160,7 +171,7 @@ export const NoteCard = ({
                     text: content,
                     tags,
                     backgroundColor,
-
+                    priority,
                     createdAt,
                   },
                   user.token,

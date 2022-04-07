@@ -19,3 +19,9 @@
 .filter.show {
   display: block;
 }
+
+.filter-options {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}

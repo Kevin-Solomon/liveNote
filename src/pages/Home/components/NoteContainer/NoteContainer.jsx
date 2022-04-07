@@ -68,7 +68,15 @@ export const NoteContainer = ({
 
       {inLabel
         ? categorizedList.map(
-            ({ _id, title, text, backgroundColor, createdAt, priority }) => {
+            ({
+              _id,
+              title,
+              text,
+              backgroundColor,
+              createdAt,
+              priority,
+              tags,
+            }) => {
               return (
                 <NoteCard
                   _id={_id}
@@ -80,6 +88,7 @@ export const NoteContainer = ({
                   inHome={inHome}
                   inTrash={inTrash}
                   priority={priority}
+                  tags={tags}
                 />
               );
             }
@@ -87,7 +96,15 @@ export const NoteContainer = ({
         : null}
       {inHome
         ? priorityList.map(
-            ({ _id, title, text, backgroundColor, createdAt, priority }) => {
+            ({
+              _id,
+              title,
+              text,
+              backgroundColor,
+              createdAt,
+              priority,
+              tags,
+            }) => {
               return (
                 <NoteCard
                   _id={_id}
@@ -99,6 +116,7 @@ export const NoteContainer = ({
                   inHome={inHome}
                   inTrash={inTrash}
                   priority={priority}
+                  tags={tags}
                 />
               );
             }
@@ -106,7 +124,15 @@ export const NoteContainer = ({
         : null}
       {inArchive
         ? notes.map(
-            ({ _id, title, text, backgroundColor, createdAt, priority }) => {
+            ({
+              _id,
+              title,
+              text,
+              backgroundColor,
+              createdAt,
+              priority,
+              tags,
+            }) => {
               return (
                 <NoteCard
                   _id={_id}
@@ -118,6 +144,7 @@ export const NoteContainer = ({
                   inHome={inHome}
                   inTrash={inTrash}
                   priority={priority}
+                  tags={tags}
                 />
               );
             }
@@ -125,7 +152,15 @@ export const NoteContainer = ({
         : null}
       {inTrash
         ? notes.map(
-            ({ _id, title, text, backgroundColor, createdAt, priority }) => {
+            ({
+              _id,
+              title,
+              text,
+              backgroundColor,
+              createdAt,
+              priority,
+              tags,
+            }) => {
               return (
                 <NoteCard
                   _id={_id}
@@ -137,6 +172,7 @@ export const NoteContainer = ({
                   inHome={inHome}
                   inTrash={inTrash}
                   priority={priority}
+                  tags={tags}
                 />
               );
             }

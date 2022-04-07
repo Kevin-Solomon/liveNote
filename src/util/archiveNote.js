@@ -8,7 +8,6 @@ export const archiveNote = async (_id, value, token, noteDispatch) => {
       options
     );
     noteDispatch({ type: 'ARCHIVE_NOTE', payload: response.data });
-    console.log(response);
   } catch (err) {
     console.error(err);
   }

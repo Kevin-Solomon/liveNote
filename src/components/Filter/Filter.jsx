@@ -13,7 +13,7 @@ function Filter() {
         Filter
       </button>
       <div className={hidden ? 'filter' : 'filter show'}>
-        <div>Sort By</div>
+        <div>Sort By Time</div>
         <div>
           <input
             id="latest-first"
@@ -32,14 +32,24 @@ function Filter() {
           />
           <label htmlFor="oldest-first">Oldest First</label>
         </div>
-        <div>Sort By Tags</div>
+        <div>Sort By Priority</div>
         <div>
-          <input type="checkbox" />
-          <label>Productivity</label>
+          <input
+            id="highest-first"
+            type="radio"
+            checked={filterState.priority === 'HIGH_TO_LOW'}
+            onChange={() => filterDispatch({ type: 'HIGH_TO_LOW' })}
+          />
+          <label htmlFor="highest-first">Highest Priority</label>
         </div>
         <div>
-          <input type="checkbox" />
-          <label>Notes</label>
+          <input
+            id="lowest-first"
+            type="radio"
+            checked={filterState.priority === 'LOW_TO_HIGH'}
+            onChange={e => filterDispatch({ type: 'LOW_TO_HIGH' })}
+          />
+          <label htmlFor="lowest-first">Lowest Priority</label>
         </div>
       </div>
     </div>

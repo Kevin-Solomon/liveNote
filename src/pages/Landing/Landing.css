@@ -25,9 +25,11 @@
 .hero-wrapper .btn {
   margin-right: 10px;
 }
-.hero-text {
+.hero-wrapper .hero-text {
   min-width: 70%;
   max-width: 20rem;
+  text-align: left;
+  margin-top: 1rem;
 }
 
 @media screen and (min-width: 800px) {

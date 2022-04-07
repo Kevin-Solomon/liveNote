@@ -35,6 +35,7 @@ export const Signup = () => {
             onChange={e => setUserInput(e)}
             className="form-input"
             type="text"
+            required
           />
           <label htmlFor="email"> Email Address </label>
           <input
@@ -44,6 +45,7 @@ export const Signup = () => {
             onChange={e => setUserInput(e)}
             className="form-input"
             type="email"
+            required
           />
           <label htmlFor="password"> Password </label>
           <input
@@ -53,6 +55,7 @@ export const Signup = () => {
             onChange={e => setUserInput(e)}
             className="form-input"
             type="password"
+            required
           />
 
           <button className="btn primary-btn" type="submit">

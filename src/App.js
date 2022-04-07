@@ -10,6 +10,7 @@ import Archive from './pages/Archive/Archive';
 import Trash from './pages/Trash/Trash';
 import Label from './pages/Label/Label';
 import AuthRequired from './components/AuthRequired/AuthRequired';
+import NotFound from './pages/NotFound/NotFound';
 function App() {
   return (
     <Routes>
@@ -65,6 +66,7 @@ function App() {
           </AuthRequired>
         }
       />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }

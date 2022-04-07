@@ -10,6 +10,7 @@ export const updateNote = async (_id, value, token, noteDispatch) => {
           backgroundColor: value.backgroundColor,
           tags: value.tags,
           createdAt: new Date().toLocaleString(),
+          priority: value.priority,
         },
       },
       options

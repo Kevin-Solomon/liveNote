@@ -3,7 +3,7 @@ import {
   filterReducer,
   initialFilterState,
 } from './../../reducer/filterReducer';
-const FilterContext = createContext({ sortBy: null, tags: [] });
+const FilterContext = createContext({ sortBy: null, tags: [], priority: null });
 const FilterProvider = ({ children }) => {
   const [filterState, filterDispatch] = useReducer(
     filterReducer,

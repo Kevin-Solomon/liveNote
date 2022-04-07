@@ -12,6 +12,7 @@ export const addNewNote = async (value, token, noteDispatch) => {
           backgroundColor: value.backgroundColor,
           tags: value.tags,
           createdAt: new Date().toLocaleString(),
+          priority: value.priority,
         },
       },
       options

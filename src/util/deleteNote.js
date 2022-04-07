@@ -8,6 +8,7 @@ export const deleteNote = async (_id, token, noteDispatch) => {
       },
     };
     const response = await axios.delete(`/api/notes/${_id}`, options);
+    console.log(response);
     if (response.status === 200) {
       noteDispatch({ type: 'DELETE_NOTE', payload: response.data.notes });
     } else {

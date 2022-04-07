@@ -14,7 +14,7 @@ function Filter() {
       </button>
       <div className={hidden ? 'filter' : 'filter show'}>
         <div>Sort By Time</div>
-        <div>
+        <div className="filter-options">
           <input
             id="latest-first"
             type="radio"
@@ -23,7 +23,7 @@ function Filter() {
           />
           <label htmlFor="latest-first">Latest First</label>
         </div>
-        <div>
+        <div className="filter-options">
           <input
             id="oldest-first"
             type="radio"
@@ -33,7 +33,7 @@ function Filter() {
           <label htmlFor="oldest-first">Oldest First</label>
         </div>
         <div>Sort By Priority</div>
-        <div>
+        <div className="filter-options">
           <input
             id="highest-first"
             type="radio"
@@ -42,7 +42,7 @@ function Filter() {
           />
           <label htmlFor="highest-first">Highest Priority</label>
         </div>
-        <div>
+        <div className="filter-options">
           <input
             id="lowest-first"
             type="radio"

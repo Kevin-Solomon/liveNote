@@ -30,7 +30,7 @@ export const NoteCard = ({
   backgroundColor,
   priority,
 }) => {
-  console.log(backgroundColor);
+  console.log(tags);
   const navigate = useNavigate();
   const { user } = useAuth();
   const { noteDispatch } = useNotes();
@@ -92,7 +92,7 @@ export const NoteCard = ({
                       text: content,
                       tags,
                       backgroundColor,
-
+                      priority,
                       createdAt,
                     },
                   ],
@@ -112,11 +112,10 @@ export const NoteCard = ({
                     ...prevState.deletedNotes,
                     {
                       _id,
-
                       text: content,
                       tags,
                       backgroundColor,
-
+                      priority,
                       createdAt,
                     },
                   ],
@@ -160,7 +159,7 @@ export const NoteCard = ({
                     text: content,
                     tags,
                     backgroundColor,
-
+                    priority,
                     createdAt,
                   },
                   user.token,

@@ -1,70 +1,75 @@
-# Getting Started with Create React App
+# liveNotes
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Need to write a summary of your lecture?
 
-## Available Scripts
+### Need list a few items before heading to the store.
 
-In the project directory, you can run:
+### I got you covered
 
-### `yarn start`
+[![wakatime](https://wakatime.com/badge/user/1773f973-ffcf-4a9c-b61a-8e4fdc1ecf3e/project/f5866641-e379-4783-b503-a0056258a5b8.svg)](https://wakatime.com/badge/user/1773f973-ffcf-4a9c-b61a-8e4fdc1ecf3e/project/f5866641-e379-4783-b503-a0056258a5b8)
+![HTML](https://img.shields.io/badge/HTML-HTML-orange)
+![CSS](https://img.shields.io/badge/CSS-CSS-blue)
+![JS](https://img.shields.io/badge/ReactJS-ReactJS-blue)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Key Features
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Authentication
+  - Login
+  - SignUp
+  - Logout
+- Private Routes
+- Public Routes
+- Home Page
+  - User can write notes with a rich text editor.
+  - User can also archive or delete notes from this page.
+- Archive Page
+  - User can unarchive from this page.
+  - User can delete archived notes from this page.
+- Label Page
+  - User can view all his archived notes sorted by category
+- Trash Page
+  - User can view all his deleted notes.
+  - User has an option to permenantly delete the note or restore the note.
+- Made a few custom hooks for this project including a `useForm` hook that I have used in form input pages.
+- Filter
+  - User can filter by tags.
+  - User can filter by priority.
+  - User can filter by last edited timestamp.
 
-### `yarn test`
+## Folder Structure
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```js
+  /public
+  /src
+      /assests
+      /backend
+      /components
+      /context
+      /pages
+      /reducer
+      /hooks
+      /util
+  /package-lock.json
+  /README.md
+  /yarn.lock
+  /package.json
+```
 
-### `yarn build`
+# Issue Reporting
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Encountered a bug or do you need a need a feature request ? Please to do check the issues tab on the repo if your issue / request does not exist , [open a new issue](https://github.com/Kevin-Solomon/liveNote/issues/new)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**_If you have encountered a bug a before and after picture of the bug would be very helpful or if time permits a small video of the bug would greatly help us undertand the issue._**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# 👨‍💻 Connect with me
 
-### `yarn eject`
+<a href="https://twitter.com/kevinsolomon777"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white"/></a>
+<a href="https://www.linkedin.com/in/kevin-solomon-8b2b2b1a5/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# Desktop Version
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![liveNote desktop gif](/src/assests/livenote-desktop.gif)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# Mobile Version
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![liveNote mobile gif](/src/assests/livenote-mobile.gif)

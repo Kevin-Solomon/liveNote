@@ -68,7 +68,7 @@ export const NoteContainer = ({
 
       {inLabel
         ? categorizedList.map(
-            ({ _id, title, text, backgroundColor, createdAt }) => {
+            ({ _id, title, text, backgroundColor, createdAt, priority }) => {
               return (
                 <NoteCard
                   _id={_id}
@@ -79,6 +79,7 @@ export const NoteContainer = ({
                   inArchive={inArchive}
                   inHome={inHome}
                   inTrash={inTrash}
+                  priority={priority}
                 />
               );
             }
@@ -86,7 +87,7 @@ export const NoteContainer = ({
         : null}
       {inHome
         ? priorityList.map(
-            ({ _id, title, text, backgroundColor, createdAt }) => {
+            ({ _id, title, text, backgroundColor, createdAt, priority }) => {
               return (
                 <NoteCard
                   _id={_id}
@@ -97,42 +98,49 @@ export const NoteContainer = ({
                   inArchive={inArchive}
                   inHome={inHome}
                   inTrash={inTrash}
+                  priority={priority}
                 />
               );
             }
           )
         : null}
       {inArchive
-        ? notes.map(({ _id, title, text, backgroundColor, createdAt }) => {
-            return (
-              <NoteCard
-                _id={_id}
-                title={title}
-                content={text}
-                backgroundColor={backgroundColor}
-                createdAt={createdAt}
-                inArchive={inArchive}
-                inHome={inHome}
-                inTrash={inTrash}
-              />
-            );
-          })
+        ? notes.map(
+            ({ _id, title, text, backgroundColor, createdAt, priority }) => {
+              return (
+                <NoteCard
+                  _id={_id}
+                  title={title}
+                  content={text}
+                  backgroundColor={backgroundColor}
+                  createdAt={createdAt}
+                  inArchive={inArchive}
+                  inHome={inHome}
+                  inTrash={inTrash}
+                  priority={priority}
+                />
+              );
+            }
+          )
         : null}
       {inTrash
-        ? notes.map(({ _id, title, text, backgroundColor, createdAt }) => {
-            return (
-              <NoteCard
-                _id={_id}
-                title={title}
-                content={text}
-                backgroundColor={backgroundColor}
-                createdAt={createdAt}
-                inArchive={inArchive}
-                inHome={inHome}
-                inTrash={inTrash}
-              />
-            );
-          })
+        ? notes.map(
+            ({ _id, title, text, backgroundColor, createdAt, priority }) => {
+              return (
+                <NoteCard
+                  _id={_id}
+                  title={title}
+                  content={text}
+                  backgroundColor={backgroundColor}
+                  createdAt={createdAt}
+                  inArchive={inArchive}
+                  inHome={inHome}
+                  inTrash={inTrash}
+                  priority={priority}
+                />
+              );
+            }
+          )
         : null}
     </section>
   );

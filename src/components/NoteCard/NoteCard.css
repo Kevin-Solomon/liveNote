@@ -32,3 +32,9 @@
 .archive-icon {
   color: var(--primary-color);
 }
+.priority-label {
+  background-color: rgb(109, 109, 109, 0.5);
+  padding: 8px;
+  border-radius: 5px;
+  width: min-content;
+}

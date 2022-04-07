@@ -28,6 +28,7 @@ export const NoteCard = ({
   inHome,
   inTrash,
   backgroundColor,
+  priority,
 }) => {
   console.log(backgroundColor);
   const navigate = useNavigate();
@@ -50,7 +51,11 @@ export const NoteCard = ({
       <h2>{title}</h2>
       <p>{ReactHtmlParser(content)}</p>
       <div className="note-card-footer">
-        <span className="small-text">{createdAt}</span>
+        <div>
+          <span className="small-text">{createdAt}</span>
+          <div className="priority-label">{priority}</div>
+        </div>
+
         <div className="note-icons-container">
           {inArchive ? (
             <span
